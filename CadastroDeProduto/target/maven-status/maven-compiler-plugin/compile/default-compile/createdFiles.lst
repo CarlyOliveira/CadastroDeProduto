@@ -1,0 +1,5 @@
+br\com\projetoStefanini\cadastroDeProduto\MODEL\Produto.class
+br\com\projetoStefanini\cadastroDeProduto\DAO\ImagemDAO.class
+br\com\projetoStefanini\cadastroDeProduto\MODEL\Imagem.class
+br\com\projetoStefanini\cadastroDeProduto\DAO\ProdutoDAO.class
+br\com\projetoStefanini\cadastroDeProduto\MB\CadastroDeProdutoMB.class

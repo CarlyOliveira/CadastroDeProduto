@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xsi:schemaLocation="http://java.sun.com/xml/ns/persistence 
+								http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd" 
+			 version="2.0" 
+			 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+			 xmlns="http://java.sun.com/xml/ns/persistence">
+ 
+ <!--    <persistence-unit name="persistence_unit_stefanini" transaction-type="RESOURCE_LOCAL">
+       -->
+      
+      <persistence-unit name="persistence_unit_stefanini">
+      
+      <!-- provedor/implementacao do JPA -->
+      <provider>org.hibernate.ejb.HibernatePersistence</provider>
+      
+       <!-- entidades mapeadas -->
+      <class>br.com.projetoStefanini.cadastroDeProduto.MODEL.Produto</class>	
+	  <class>br.com.projetoStefanini.cadastroDeProduto.MODEL.Imagem</class>
+	 
+	  
+      <properties>
+         
+         <!-- dados da conexao -->
+         <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+         <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/dbStefanini"/>
+         <property name="javax.persistence.jdbc.user" value="root"/>
+         <property name="javax.persistence.jdbc.password" value="1234"/>
+         
+         
+         <!-- propriedades do hibernate -->
+         <property name="hibernate.show_sql" value="true"/>
+         <property name="hibernate.format_sql" value="true"/>
+         
+         <!-- conexão com mysql -->
+         <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
+      
+      	  <!-- atualiza o banco, gera as tabelas se for preciso -->
+      	 <property name="hibernate.hbm2ddl.auto" value="update"/>
+      
+      </properties>
+   </persistence-unit>
+</persistence>

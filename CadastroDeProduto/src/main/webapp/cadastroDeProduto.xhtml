@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:ui="http://java.sun.com/jsf/facelets"
+	  xmlns:p="http://primefaces.org/ui">
+
+
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Consultar Produto</title>
+
+ <style type="text/css">
+            .ui-widget {font-size: 90% !important;}
+        </style>
+</h:head>
+   
+ 
+<body>
+ 
+ <h:form id="frmGeral">
+  
+  <p:messages id="messages" showDetail="true" closable="true"/>
+    
+  <p:fieldset legend="Cadastro de produtos" >
+
+  
+  	<p:toolbar style="margin-top: 20px;" >
+  	
+  		<p:toolbarGroup>
+  			<p:outputLabel value="Código do produto" />
+			<p:inputText id="cdProdutoPesquisar" style="margin-left: 20px" value="#{CadastroDeProdutoMB.produto.id}" converterMessage="Por favor, digite apenas números!"/>
+  		</p:toolbarGroup>
+    
+    	<p:toolbarGroup align="right">    
+     		<p:commandButton value="Pesquisar" icon="ui-icon-search" action="#{CadastroDeProdutoMB.get}" ajax="false"/>
+     		<p:commandButton value="Salvar" icon="ui-icon-disk" action="#{CadastroDeProdutoMB.save}" ajax="false"/>
+     		<p:commandButton value="Excluir" icon="ui-icon-trash" action="#{CadastroDeProdutoMB.removeProduto}" ajax="false"/>
+    	</p:toolbarGroup>
+    
+    </p:toolbar>
+    
+    <p:fieldset legend="Produto" toggleable="true" style="margin-bottom:20px; margin-top:20px">
+  		
+  		<p:panelGrid columns="2" id="painel" style="width:100%">
+		
+			<p:outputLabel value="Nome" for="nmProduto"/>
+			<p:inputText id="nmProduto" size="60" maxlength="20" value="#{CadastroDeProdutoMB.produto.nome}"/>	
+			
+			<p:outputLabel value="Descrição" for="descricao"/>
+			<p:inputText id="descricao" size="100" maxlength="20" value="#{CadastroDeProdutoMB.produto.descricao}"/>	
+			
+			<p:outputLabel value="Código do produto Pai" for="cdProdutoPai" />
+			<p:inputText id="cdProdutoPai" size="20" maxlength="20" value="#{CadastroDeProdutoMB.produtoPai.id}" converterMessage="Por favor, digite apenas números!"/>							 				 
+		</p:panelGrid>
+	</p:fieldset>
+
+  
+  	<p:toolbar style="margin-top: 20px;" >
+  	
+  		<p:toolbarGroup>
+  			<p:outputLabel value="Código da imagem do produto" />
+			<p:inputText id="cdImagemPesquisar" style="margin-left: 20px" value="#{CadastroDeProdutoMB.imagem.id}" converterMessage="Por favor, digite apenas números!"/>
+  		</p:toolbarGroup>
+    
+    	<p:toolbarGroup align="right"> 
+     		<p:commandButton value="Adcionar" icon="ui-icon-plus" action="#{CadastroDeProdutoMB.adcionarImagem}" ajax="false"/>
+     		<p:commandButton value="Remover" icon="ui-icon-minus" action="#{CadastroDeProdutoMB.removerImagem}" ajax="false"/>
+    	</p:toolbarGroup>
+    
+    </p:toolbar>
+    
+    <p:fieldset legend="Imagem" toggleable="true" style="margin-bottom:20px; margin-top:20px">
+  		
+  		<p:panelGrid columns="2" id="painelImagens" style="width:100%">
+		
+			<p:outputLabel value="Nome" for="nmImagem"/>
+			<p:inputText id="nmImagem" size="60" maxlength="20" value="#{CadastroDeProdutoMB.imagem.nome}"/>	
+			
+			<p:outputLabel value="Descrição" for="tipo"/>
+			<p:inputText id="tipo" size="100" maxlength="20" value="#{CadastroDeProdutoMB.imagem.tipo}"/>	
+										 				 
+		</p:panelGrid>
+	</p:fieldset>
+  	
+  	
+  	<p:spacer height="10"/>
+	
+	<p:dataTable id="dtImgs" emptyMessage="Nenhuma imagem para o produto ." value="#{CadastroDeProdutoMB.imagens}" var="img"
+                                style="text-align: center; font-weight: bold;">
+                <f:facet name="header">
+                    <h:outputText value="Imagens do produto" />
+                </f:facet>
+                     
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Código"/>
+                    </f:facet>
+                    <h:outputText value="#{img.id}"/>
+                </p:column>   
+                 
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Nome"/>
+                    </f:facet>
+                    <h:inputText value="#{img.nome}"/>
+                </p:column>
+                     
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Tipo"/>
+                    </f:facet>
+                    <h:inputText value="#{img.tipo}"/>
+                </p:column>        
+                         		
+
+                </p:dataTable>
+	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+   </p:fieldset>
+
+	
+	
+	
+  </h:form>
+</body>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  </html>
